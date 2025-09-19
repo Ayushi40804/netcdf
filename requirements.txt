@@ -1,0 +1,43 @@
+# ARGO Oceanographic Data System - Complete Dependencies
+
+# Core Data Processing
+pandas>=1.5.0
+numpy>=1.21.0
+xarray>=2022.6.0
+netCDF4>=1.6.0
+
+# Database Dependencies
+mysql-connector-python>=8.0.33
+sqlalchemy>=2.0.0
+
+# Vector Database and Embeddings
+chromadb>=0.4.0
+sentence-transformers>=2.2.0
+faiss-cpu>=1.7.4
+
+# LLM APIs
+openai>=1.0.0
+anthropic>=0.3.0
+google-generativeai>=0.3.0
+
+# LangChain Dependencies (for existing chatbot)
+langchain>=0.1.0
+langchain-google-genai>=1.0.0
+langchain-community>=0.0.10
+
+# Web Frameworks
+fastapi>=0.100.0
+uvicorn[standard]>=0.23.0
+streamlit>=1.28.0
+pydantic>=2.0.0
+
+# Utilities
+python-dotenv>=1.0.0
+asyncio-compat>=0.1.2
+typing-extensions>=4.5.0
+requests>=2.31.0
+
+# Development and Testing
+pytest>=7.0.0
+black>=23.0.0
+flake8>=6.0.0
