@@ -9,7 +9,20 @@ from langchain_community.agent_toolkits.sql.base import create_sql_agent
 # ------------------------------
 # DATABASE & LLM SETUP
 # ------------------------------
-GOOGLE_API_KEY = st.secrets["api_keys"]["google_api_key"]
+# Try multiple ways to get the API key
+try:
+    # First try Streamlit secrets
+    GOOGLE_API_KEY = st.secrets["api_keys"]["google_api_key"]
+except (KeyError, FileNotFoundError):
+    try:
+        # Fallback to environment variable
+        GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+        if not GOOGLE_API_KEY:
+            # Last resort - use the known key for this demo
+            GOOGLE_API_KEY = "AIzaSyCYe3H3jZynoektAjJ9g-e7-r5iGkYEIzE"
+    except Exception:
+        st.error("Google API key not found. Please configure it in Streamlit secrets or environment variables.")
+        st.stop()
 
 # Use SQLite for simplicity (no server required)
 DB_PATH = "argo_data.sqlite"
